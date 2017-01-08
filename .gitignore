@@ -3,7 +3,6 @@
 ._*
 .python-version
 .coverage
-*.sqlite3
 
 env/
 build/
