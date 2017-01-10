@@ -5,12 +5,18 @@
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
-    <h1>{{ page.title }}</h1>
-
-    <div class="intro">{{ page.intro|richtext }}</div>
-
+    <section class="container">
+        <h1>{{ page.title }}</h1>
+    </section>
     {% for post in blog_pages %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        <div class="post">
+            <section class="container">
+                <h2>
+                    <small>{{ post.specific.date }}</small>
+                    <a href="{% pageurl post %}">{{ post.title }}</a>
+                </h2>
+            </section>
+        </div>
     {% endfor %}
 
     {% endblock %}

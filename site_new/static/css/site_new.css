@@ -10,11 +10,21 @@ body {
   font-size: 112.5%;
   line-height: 180%;
   vertical-align: baseline;
-  margin: 100px;
+  margin: 0;
 
+  background: #0e0e11;
+  color: #99999a;
+  overflow-y: scroll
+}
 
-  background: #141418;
-  color: #99999a
+::selection {
+  background: rgba(0,0,0,.99);
+  color: #eee
+}
+
+::-moz-selection {
+  background: rgba(0,0,0,.99);
+  color: #eee
 }
 
 h1, h2, h3, h4 {
@@ -34,10 +44,13 @@ a {
 
 a:hover {
   color: #fff;
-  border-bottom-color: #F4B665
 }
 
-div.container {
+section.main-content {
+  background: #141418;
+}
+
+section.container {
   width: 45rem;
   margin: 0 auto;
   overflow: hidden;
@@ -45,6 +58,10 @@ div.container {
 }
 
 header {
+  background: rgba(0,0,0,.1);
+  background: #121216;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  padding: 3rem 0;
 }
 
 header h1 {
@@ -52,9 +69,34 @@ header h1 {
   font-size: 3rem;
 }
 
+body.template-blogpage header h1 {
+  font-size: 1.5rem;
+}
+
+body.template-blogpage h1 {
+  font-size: 3rem;
+}
+
+header section.container:after {
+  height: 2px;
+  width: 25%;
+  background: rgba(255,255,255,.5);
+  content: '';
+  margin-top: 1rem;
+  display: block
+}
+
 header h1 a {
   color: #eee;
   border-bottom: none
+}
+
+header p a {
+  color: #4d90b3;
+}
+
+header p a:hover {
+  color: #0af;
 }
 
 p.meta {
@@ -64,13 +106,57 @@ p.meta {
   text-align: right
 }
 
+div.post {
+  padding: 1rem 0;
+}
+
+div.post h2 {
+  margin: 0;
+}
+
+body.template-blogindexpage div.post:nth-child(2n) {
+  background: rgba(255,255,255,.015);
+}
+
+div.post small {
+  float:right;
+  font-size: 45%;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+
+footer {
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-weight: 100
+}
+
+footer .container p {
+  width: 45%
+}
+
+footer a {
+  color: #ddd;
+}
+
 @media screen and (max-width: 700px) {
   body {
     margin: 0;
   }
 
-  div.container {
+  header {
+    padding: 1rem 0;
+  }
+
+  section.container {
     width: 100%;
     padding: 2rem
+  }
+
+  div.post section.container{
+    padding: 0 2rem;
+  }
+
+  div.post small {
+    display: none
   }
 }

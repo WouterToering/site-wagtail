@@ -21,36 +21,52 @@
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/site_new.css' %}">
-
-        {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
         <header>
-            <div class="container">
+            <section class="container">
                 <h1>
                     <a href="/">Wouter Toering</a>
                 </h1>
-            </div>
+                {% if blog_pages %} {# This totally is a sane check for index #}
+                <p>
+                    Hey there, I'm a software developer at
+                    <a href="https://bynder.com">Bynder</a> in Amsterdam, where
+                    I fiddle around with Python.
+
+                    Welcome to my collection of ramblings.
+                </p>
+                {% endif %}
+            </section>
         </header>
 
         <section class="main-content">
-            <div class="container">
-                {% block content %}{% endblock %}
-            </div>
+            {% block content %}{% endblock %}
         </section>
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/site_new.js' %}"></script>
+        <footer>
+            <section class="container">
+                <p>
+                    You can also find me on <a href="https://github.com/WouterToering">GitHub</a>
+                    and <a href="https://twitter.com/woutertoering">Twitter</a>, or
+                    send me an <a href="mailto:wouter@returnwt.net">e-mail</a>.
+                </p>
+            </section>
+        </footer>
 
-        {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
-        {% endblock %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-77148589-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+
     </body>
 </html>
