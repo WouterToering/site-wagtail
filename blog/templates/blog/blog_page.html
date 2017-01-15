@@ -5,18 +5,16 @@
 {% block body_class %}template-blogpage{% endblock %}
 
 {% block content %}
-<section class="container">
+<article>
     <h1>{{ page.title }}</h1>
+    <small>{{ page.date }}</small>
 
 
     {% if page.body %}
-        <div class="body-content">
-            {% include "blog/includes/streamfield.html" with content=page.body %}
-        </div>
+        {% include "blog/includes/streamfield.html" with content=page.body %}
     {% endif %}
 
-    <p class="meta">&ndash;  {{ page.date }}</p>
 
-    <p><a href="{{ page.get_parent.url }}">Return to index</a></p>
-</section>
+    <p><a class="go-back" href="{{ page.get_parent.url }}">Return to index</a></p>
+</article>
 {% endblock %}

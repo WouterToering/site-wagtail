@@ -1,162 +1,259 @@
+/* Debugz */
+body.debug * {
+  box-shadow: 1px 1px 0 rgba(255,0,0,.1),
+              -1px -1px 0 rgba(255,0,0,.1)
+}
+
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "acumin-pro", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "acumin-pro",
+               Helvetica Neue, Helvetica, Arial, sans-serif;
   font-weight: normal;
-  font-size: 112.5%;
   line-height: 180%;
   vertical-align: baseline;
   margin: 0;
 
-  background: #0e0e11;
-  color: #99999a;
+  background: #fafafa;
+  color: #404040;
   overflow-y: scroll
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em
+}
+
 ::selection {
-  background: rgba(0,0,0,.99);
-  color: #eee
+  background: #ff4500;
+  color: #fff
 }
 
 ::-moz-selection {
-  background: rgba(0,0,0,.99);
-  color: #eee
+  background: #ff4500;
+  color: #fff
 }
 
-h1, h2, h3, h4 {
-  font-family: -apple-system, BlinkMacSystemFont, "acumin-pro", Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  color: #eee;
-  font-weight: 600;
-  font-size: 1.625rem;
-  line-height: 1em;
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh
+}
+
+section.page {
+  flex: 1;
+  padding-top: 4rem;
 }
 
 a {
-  color: #F4B665;
   text-decoration: none;
-  border-bottom: 2px solid rgba(255,255,255,.2)
+  color: #ff4500;
+  border-bottom: 2px solid transparent
 }
 
 a:hover {
-  color: #fff;
+  border-color: #ff4500
 }
 
-section.main-content {
-  background: #141418;
-}
-
-section.container {
-  width: 45rem;
+header,
+section.intro,
+section.container,
+section.blog-post-list,
+article {
+  width: 100%;
+  max-width: 60rem;
   margin: 0 auto;
-  overflow: hidden;
-  padding: 2rem;
 }
 
-header {
-  background: rgba(0,0,0,.1);
-  background: #121216;
-  border-bottom: 1px solid rgba(255,255,255,.05);
-  padding: 3rem 0;
-}
+/**
+ * Header
+ **/
 
 header h1 {
-  font-weight: 700;
-  font-size: 3rem;
+  display: inline-block;
+  font-size: 1.25rem;
+  margin-top: 4rem
 }
 
-body.template-blogpage header h1 {
-  font-size: 1.5rem;
-}
-
-body.template-blogpage h1 {
-  font-size: 3rem;
-}
-
-header section.container:after {
+header h1:after, footer section.about h4:after {
+  content: "";
+  display: block;
   height: 2px;
-  width: 25%;
-  background: rgba(255,255,255,.5);
-  content: '';
+  width: 3rem;
+  background: #ddd;
   margin-top: 1rem;
-  display: block
 }
 
 header h1 a {
-  color: #eee;
-  border-bottom: none
+  color: #222
 }
 
-header p a {
-  color: #4d90b3;
+section.intro p {
+  width: 44%;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.2em;
+  margin-bottom: 0;
+  margin-top: 3rem;
 }
 
-header p a:hover {
-  color: #0af;
+section.intro p em {
+  font-style: normal;
+  color: #000;
 }
 
-p.meta {
-  color: #777778;
-  font-size: 1rem;
-  padding: 1rem 0;
-  text-align: right
-}
+/**
+ * Article list
+ **/
 
 div.post {
-  padding: 1rem 0;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd
+}
+
+div.post a {
+  color: #222
+}
+
+div.post:last-child {
+  border-bottom-color: transparent
 }
 
 div.post h2 {
   margin: 0;
-}
-
-body.template-blogindexpage div.post:nth-child(2n) {
-  background: rgba(255,255,255,.015);
+  font-weight: 400
 }
 
 div.post small {
-  float:right;
-  font-size: 45%;
   text-transform: uppercase;
-  color: rgba(255,255,255,.6);
+  font-size: 0.8rem
 }
+
+/**
+ * Article
+ **/
+
+article,
+section.blog-post-list,
+article div.rich-text{
+  display: flex;
+  align-items: center;
+  flex-direction: column
+}
+
+header section.container,
+section.intro,
+div.post,
+
+article p,
+article h1,
+article h2,
+article h3,
+article h4,
+article ol,
+article small,
+
+footer section.container{
+  width: 100%;
+  max-width: 42rem;
+}
+
+article h1 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin: 0
+}
+
+article small {
+  color: #999;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  line-height: 3em;
+}
+
+article a.go-back {
+  display: inline-block;
+}
+
+article a.go-back:before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 3rem;
+  background: #ddd;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+/**
+ * Footer
+ **/
 
 footer {
-  border-top: 1px solid rgba(255,255,255,.1);
-  font-weight: 100
+  background: #f4f4f4;
+  font-size: 1rem;
+  margin-top: 4rem
 }
 
-footer .container p {
-  width: 45%
+footer .container {
+  display: flex;
+  align-items: flex-start;
+  padding: 3rem 0;
 }
 
-footer a {
-  color: #ddd;
+footer img {
+  width: 3rem;
+  margin-right: 2rem;
+  border-radius: 100%;
 }
 
-@media screen and (max-width: 700px) {
-  body {
-    margin: 0;
-  }
 
-  header {
-    padding: 1rem 0;
-  }
-
-  section.container {
-    width: 100%;
-    padding: 2rem
-  }
-
-  div.post section.container{
-    padding: 0 2rem;
-  }
-
-  div.post small {
-    display: none
-  }
+footer h4, footer ul{
+  margin-top: 0
 }
+
+footer img, footer section {
+}
+
+footer section.about {
+  flex: 1;
+}
+
+footer section.about p {
+  max-width: 20rem;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer section.elsewhere {
+  text-align: right;
+  margin-left: 1rem;
+}
+
+footer h4 {
+  display: flex;
+  flex-direction: column;
+}
+
+footer section.elsewhere h4:after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 3rem;
+  background: #ddd;
+  margin-top: 1rem;
+  align-self: flex-end
+}
+

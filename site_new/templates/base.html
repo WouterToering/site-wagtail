@@ -20,11 +20,11 @@
         </title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{% static 'css/site_new.css' %}">
     </head>
 
-    <body class="{% block body_class %}{% endblock %}">
+    <body class="site {% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
         <header>
@@ -32,29 +32,49 @@
                 <h1>
                     <a href="/">Wouter Toering</a>
                 </h1>
-                {% if blog_pages %} {# This totally is a sane check for index #}
-                <p>
-                    Hey there, I'm a software developer at
-                    <a href="https://bynder.com">Bynder</a> in Amsterdam, where
-                    I fiddle around with Python.
-
-                    Welcome to my collection of ramblings.
-                </p>
-                {% endif %}
             </section>
         </header>
+        {% if blog_pages %}
+            <section class="intro">
+                <p>
+                    Software Developer <em>&amp;</em> grumpy internet user.
+                </p>
+            </section>
+        {% endif %}
 
-        <section class="main-content">
+        <section class="page">
             {% block content %}{% endblock %}
         </section>
 
         <footer>
             <section class="container">
-                <p>
-                    You can also find me on <a href="https://github.com/WouterToering">GitHub</a>
-                    and <a href="https://twitter.com/woutertoering">Twitter</a>, or
-                    send me an <a href="mailto:wouter@returnwt.net">e-mail</a>.
-                </p>
+                <img src="{% static "img/wouter.jpg" %}" />
+                <section class="about">
+                    <h4>About Wouter</h4>
+                    <p>
+                        I am a 23-year-old software developer from the Netherlands,
+                        currently working for <a href="https://bynder.com">Bynder</a>
+                        in Amsterdam.
+                    </p>
+                    <p>
+                        In my spare time I'm your typical
+                        <a href="https://unsplash.com/@woutertoering">photograph taking</a>,
+                        <a href="https://www.strava.com/athletes/14184024">road bike riding</a> internet consumer.
+                    </p>
+                </section>
+                <section class="elsewhere">
+                    <h4>Elsewhere</h4>
+                    <ul>
+                        <li><a href="https://github.com/WouterToering">GitHub</a></li>
+                        <li><a href="https://twitter.com/WouterToering">Twitter</a></li>
+                        <li><a href="mailto:wouter@returnwt.net">E-mail</a></li>
+                    </ul>
+                </section>
+                <!-- <p> -->
+                <!--     You can also find me on <a href="https://github.com/WouterToering">GitHub</a> -->
+                <!--     and <a href="https://twitter.com/woutertoering">Twitter</a>, or -->
+                <!--     send me an <a href="mailto:wouter@returnwt.net">e-mail</a>. -->
+                <!-- </p> -->
             </section>
         </footer>
 
@@ -67,6 +87,5 @@
             ga('create', 'UA-77148589-1', 'auto');
             ga('send', 'pageview');
         </script>
-
     </body>
 </html>

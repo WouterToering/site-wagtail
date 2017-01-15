@@ -18,7 +18,7 @@ from wagtail.wagtaildocs.blocks import DocumentChooserBlock
 class BlogIndexPage(Page):
     def get_context(self, request):
         context = super(BlogIndexPage, self).get_context(request)
-        blogpages = self.get_children().live().order_by('-first_published_at')
+        blogpages = self.get_children().live()#.order_by('date')
         context['blog_pages'] = blogpages
         return context
 
