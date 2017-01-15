@@ -222,9 +222,6 @@ footer h4, footer ul{
   margin-top: 0
 }
 
-footer img, footer section {
-}
-
 footer section.about {
   flex: 1;
 }
@@ -242,6 +239,11 @@ footer section.elsewhere {
   margin-left: 1rem;
 }
 
+footer section.elsewhere ul {
+  margin: 0;
+  padding: 0
+}
+
 footer h4 {
   display: flex;
   flex-direction: column;
@@ -257,3 +259,35 @@ footer section.elsewhere h4:after {
   align-self: flex-end
 }
 
+@media screen and (max-width: 40rem) {
+  header section.container,
+  section.intro,
+  div.post,
+
+  article h1,
+  article h2,
+  article h3,
+  article h4,
+  article ol,
+  article small,
+
+  footer section.container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  footer section.container { display: block }
+  footer section.elsewhere  { text-align: left; margin-left: 0 }
+  footer section.elsewhere ul{ display: flex; justify-content: space-between }
+  footer img { margin: 0 auto; display: block }
+  footer h4 { display: block }
+
+  section.intro p { width: 100%; margin-top: 1rem }
+
+  article small { margin-bottom: 0rem; padding: 0 1rem }
+  article p { padding: 0 1rem; margin: 1em 0 }
+  article ol { padding-left: 2rem }
+
+  header h1 { margin-top: 1rem }
+  section.page { padding-top: 2rem }
+}
